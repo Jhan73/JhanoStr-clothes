@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'JhanoStr';
+  imagen = "https://www.w3schools.com/howto/img_avatar.png"
+  cargaImg(imgLink :string){
+    console.log("el padre sabe que cargo la imagen:",imgLink)
+  }
 }
