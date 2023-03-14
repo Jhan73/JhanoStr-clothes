@@ -1,0 +1,7 @@
+<h2>Avatar</h2>
+<img [src]="img" (load)="imgLoaded()" (error)="imgError()" alt="" *ngIf="img; else defaultImg" >
+<!-- esto solo se ejecuta cuando se le manra un String vacion por img -->
+<ng-template #defaultImg>
+    <img src="https://www.m2crowd.com/core/i/placeholder.png" alt="">
+</ng-template>
+
