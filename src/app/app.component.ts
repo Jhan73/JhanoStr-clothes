@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from './models/product.model';
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,6 @@ export class AppComponent {
   cargaImg(imgLink :string){
     console.log("el padre sabe que cargo la imagen:",imgLink)
   }
+  
+  
 }
