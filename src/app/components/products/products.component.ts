@@ -50,4 +50,13 @@ export class ProductsComponent {
       name: "zapatos con alzas"
     }
   ];
+  myShoppingCart: Product[]=[];
+  cantProducts = 0;
+  totalPrice = 0;
+  addToShoppingCart(product: Product){
+    this.myShoppingCart.push(product);
+    this.cantProducts = this.myShoppingCart.length;
+    this.totalPrice = this.myShoppingCart.reduce((sum, item)=>sum+item.price,0);
+    console.log(product);
+  }
 }

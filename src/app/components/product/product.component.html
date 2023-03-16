@@ -2,4 +2,4 @@
 <app-image [img]="product.image" (dataLoad)="imgLoad($event)"></app-image>
 <h2>{{product.price}} </h2>
 <p>{{product.name}} </p>
-
+<button (click)="addToCart()" >Add to cart</button>

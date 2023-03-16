@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 
 @Component({
@@ -14,7 +14,12 @@ export class ProductComponent {
     price : 0,
     name: ""
   };
+  @Output()
+  addProduct = new EventEmitter<Product>();
   imgLoad(imgLink: string){
     console.log("link de imagen:",imgLink)
+  }
+  addToCart(){
+    this.addProduct.emit(this.product);
   }
 }
