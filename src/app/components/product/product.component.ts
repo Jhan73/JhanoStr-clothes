@@ -16,9 +16,7 @@ export class ProductComponent {
   };
   @Output()
   addProduct = new EventEmitter<Product>();
-  imgLoad(imgLink: string){
-    console.log("link de imagen:",imgLink)
-  }
+  
   addToCart(){
     this.addProduct.emit(this.product);
   }
