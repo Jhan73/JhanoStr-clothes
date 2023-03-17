@@ -11,7 +11,8 @@ import { ProductsComponent } from './components/products/products.component';
 import { ImageComponent } from './components/image/image.component';
 import { NavComponent } from './components/nav/nav.component';
 
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { TimeAgoPipe } from './pipes/time-ago.pipe'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {HttpClientModule} from '@angular/common/http'
     ProductComponent,
     ProductsComponent,
     ImageComponent,
-    NavComponent
+    NavComponent,
+    TimeAgoPipe
   ],
   imports: [
     BrowserModule,

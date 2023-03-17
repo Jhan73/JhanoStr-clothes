@@ -1,5 +1,6 @@
 <p>Cantidad de productos: {{cantProducts}} </p>
 <p>Monto total : $ {{totalPrice}} </p>
+<p>Fecha : {{date | timeAgo}} </p>
 <div class="products__grid">
   <app-product [product]="product" *ngFor="let product of products" (addProduct)="addToShoppingCart($event)"></app-product>
 </div>
