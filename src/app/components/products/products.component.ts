@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/models/product.model';
+import { CreateProductDTO, Product } from 'src/app/models/product.model';
 import { StoreService } from 'src/app/services/store.service';
 import { ProductsService } from 'src/app/services/products.service';
 @Component({
@@ -40,6 +40,18 @@ export class ProductsComponent implements OnInit{
     this.productsService.getProductById(id).subscribe(data =>{
       this.toggleButton();
       this.product = data;
+    })
+  }
+  createProduct(){
+    const newProduct: CreateProductDTO ={
+      images : ['https://placeimg.com/640/480/any?r=0.4686298051618787'],
+      price : 125,
+      title: "Wo ho ho ho",
+      description: "esto es una prueba",
+      categoryId: 3,
+    }
+    this.productsService.create(newProduct).subscribe(data =>{
+      console.log(data)
     })
   }
 }

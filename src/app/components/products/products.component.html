@@ -1,6 +1,7 @@
 <p>Cantidad de productos: {{cantProducts}} </p>
 <p>Monto total : $ {{totalPrice}} </p>
 <p>Fecha : {{date | timeAgo}} </p>
+<button (click)="createProduct()">Crear un nuevo producto</button>
 <div class="products__grid">
   <app-product [product]="product" *ngFor="let product of products" (addProduct)="addToShoppingCart($event)" (showDetail)="onShowDetails($event)"></app-product>
 </div>
