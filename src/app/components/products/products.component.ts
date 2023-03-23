@@ -11,8 +11,10 @@ export class ProductsComponent implements OnInit{
   products: Product []=[];
   cantProducts = 0;
   totalPrice = 0;
+  showProductDetail = false;
   date = new Date('2-25-2023');
   myshoppingCart: Product[]=[];
+  product!: Product;
   constructor(
     private storeService: StoreService, 
     private productsService: ProductsService
@@ -23,11 +25,21 @@ export class ProductsComponent implements OnInit{
     this.productsService.getAllProducts().subscribe(res =>{
       this.products = res;
     })
+    
   }
 
   addToShoppingCart(product: Product){
     this.storeService.addProduct(product);
     this.totalPrice = this.storeService.getTotalPrice();
     this.cantProducts = this.storeService.getTotalQuantityOfProducts();
+  }
+  toggleButton(){
+    this.showProductDetail = !this.showProductDetail;
+  }
+  onShowDetails(id: string){
+    this.productsService.getProductById(id).subscribe(data =>{
+      this.toggleButton();
+      this.product = data;
+    })
   }
 }

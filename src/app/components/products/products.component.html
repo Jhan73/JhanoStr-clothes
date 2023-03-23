@@ -2,5 +2,21 @@
 <p>Monto total : $ {{totalPrice}} </p>
 <p>Fecha : {{date | timeAgo}} </p>
 <div class="products__grid">
-  <app-product [product]="product" *ngFor="let product of products" (addProduct)="addToShoppingCart($event)"></app-product>
+  <app-product [product]="product" *ngFor="let product of products" (addProduct)="addToShoppingCart($event)" (showDetail)="onShowDetails($event)"></app-product>
+</div>
+<div class="product-detail" [class.active]="showProductDetail">
+  <div *ngIf="product">
+    <button (click)="toggleButton()"> <i class="fa-sharp fa-solid fa-xmark"></i> </button>
+    <div class="img-container">
+      <div *ngFor="let img of product.images" >
+        <img [src]="img" alt="">
+      </div>
+    </div>
+    
+    <h2>{{product.title}}</h2>
+    <p>Price: {{product.price}} </p>
+    <p>Category: {{product.category.name}} </p>
+    <p>{{product.description}}</p>
+  </div>
+  
 </div>

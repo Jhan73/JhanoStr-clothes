@@ -10,20 +10,25 @@ export class ProductComponent {
 
   @Input() product : Product= {
     id: "",
-    image : "",
+    images : [],
     price : 0,
     title: "",
     description: "",
-    category: "",
-    rating: {
-      rate: 0,
-      count: 0
+    category: {
+      id: 0,
+      name : "",
+      typeImg: ""
     }
   };
   @Output()
   addProduct = new EventEmitter<Product>();
-  
+  @Output()
+  showDetail = new EventEmitter<string>();
   addToCart(){
     this.addProduct.emit(this.product);
+  }
+
+  showDetails(){
+    this.showDetail.emit(this.product.id)
   }
 }
