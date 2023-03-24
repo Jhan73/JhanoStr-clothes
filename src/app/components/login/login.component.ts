@@ -18,6 +18,7 @@ export class LoginComponent {
     email: '',
     password: ''
   };
+  token = '';
   createUser(){
     this.userService.create(this.newUser).subscribe(data => {
       console.log(data);
@@ -28,6 +29,12 @@ export class LoginComponent {
   logIn(){
     this.authService.login(this.email, this.password).subscribe(data => {
       console.log(data)
+      this.token = data.access_token;
+    })
+  }
+  getProfile(){
+    this.authService.profile(this.token).subscribe(data => {
+      console.log(data);
     })
   }
 

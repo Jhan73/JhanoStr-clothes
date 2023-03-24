@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 import { BehaviorSubject } from 'rxjs';
-import { th } from 'date-fns/locale';
 
 @Injectable({
   providedIn: 'root'
