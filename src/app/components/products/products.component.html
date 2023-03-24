@@ -4,6 +4,7 @@
 <button (click)="createProduct()">Crear un nuevo producto</button>
 <div class="products__grid">
   <app-product [product]="product" *ngFor="let product of products" (addProduct)="addToShoppingCart($event)" (showDetail)="onShowDetails($event)"></app-product>
+  <button (click)="loadMore()">Cargar mas</button>
 </div>
 <div class="product-detail" [class.active]="showProductDetail">
   <div *ngIf="product">
@@ -19,5 +20,4 @@
     <p>Category: {{product.category.name}} </p>
     <p>{{product.description}}</p>
   </div>
-  
 </div>

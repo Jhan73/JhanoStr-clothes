@@ -15,6 +15,8 @@ export class ProductsComponent implements OnInit{
   date = new Date('2-25-2023');
   myshoppingCart: Product[]=[];
   product!: Product;
+  offset = 0;
+  limit = 10;
   constructor(
     private storeService: StoreService, 
     private productsService: ProductsService
@@ -22,9 +24,7 @@ export class ProductsComponent implements OnInit{
     this.myshoppingCart = this.storeService.getMyShoppingCart();
   }
   ngOnInit(): void {
-    this.productsService.getAllProducts().subscribe(res =>{
-      this.products = res;
-    })
+    this.loadMore();
     
   }
 
@@ -53,5 +53,11 @@ export class ProductsComponent implements OnInit{
     this.productsService.create(newProduct).subscribe(data =>{
       console.log(data)
     })
+  }
+  loadMore(){
+    this.productsService.getProductsByPage(this.offset, this.limit).subscribe(data =>{
+      this.products.push(...data);
+    })
+    this.offset += this.limit;
   }
 }

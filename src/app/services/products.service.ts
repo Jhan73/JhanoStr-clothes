@@ -20,4 +20,9 @@ export class ProductsService {
   create(dto: CreateProductDTO){
     return this.http.post<Product>(this.apiUrl, dto);
   }
+  getProductsByPage(offset: number, limit: number){
+    return this.http.get<Product[]>(this.apiUrl,{
+      params: {limit, offset}
+    } )
+  }
 }
